@@ -123,8 +123,6 @@ Data Engineering is a team sport:
 - Architect: Architect data management systems for collecting and storing data
 - Database experts: Optimize data stores for high availablity
 - Proficiency in Data tools, programming languages and distributes dystems
-- 
-<hr style="border:2px solid gray">
 
 ## Responsibilties and Skillsets of a Data Engineer
 
@@ -176,3 +174,139 @@ Will be working with other roles such as Technical teams, Business users, Analys
 - Teamwork
 - Collaboration
 - Effective communication
+
+<hr style="border:2px solid gray">
+
+## Data Engineering Ecosystem
+
+A Data Engineer's ecosystem includes the infrastructure, tools, framkeworks and processes for:
+
+- Extracting data from disparate sources
+- Architecting and managing data pipelines for transformation, integration and storage of data
+- Architecting and managing data repositories
+- Automating and optimizing workflows and flow of data between systems
+- Developing applications needed through the data engineering workflow
+
+**Data**:
+
+- Structured
+  - Data that follows a rigid format and can be organized into rows and columns.
+  - eg: relational databases, spreadsheet
+- Semi-structured
+  - Mix of data that has consistent characteristics and data that does not conform to a rigid structure
+  - eg: Email, Json
+- Unstructured
+  - Data that is complex and mostly qualitative information that cannot be structured into rows and columns.
+  - eg: photo, videos, text file, social media contents
+
+**Data Repositories**:
+
+- Transactional or Online Transaction Processing(OLTP) System
+  - Designed to store high volume day-to-day operational data
+  - eg: online banking transactions, ATM transactions etc
+  - Typically relational, but can also be non-relational
+- Analytical or Online Analytical Processing(OLAP) System
+  - Optimized for conducting complex data analytics
+  - Include reltional and non-relational databases, data warehouses, data marts, data lakes and big data stores.
+
+**Data Integration**:
+
+Collated --> Processed --> Cleansed --> Integrated --> Users
+
+**Data Pipeline**:
+
+A set of tools and processes that cover the entire journey of data from source to destination systems.
+
+**Languages**:
+
+- Query languages
+  - For querying and manipulating data
+  - eg: SQL
+- Programming languages
+  - For developing data applications and controlling application behaviour
+  - eg: Python, R, Java
+- Shell and Scripting languages
+  - For repetitive and time-consuming operational tasks
+  - eg: Unix/Linux Shell, PowerShell
+
+**BI and reporting Tools**:
+
+- Collect data from multiple data sources and present them in a visual format, such as interactive dashboards.
+- Visualize data in real-time and pre-defined schedule
+
+**File formats**
+
+- Delimited text file formats eg: CSV, TSV
+- Microsoft Excel Open .XML spredsheet, or .XLSX
+- Extensible Markup Language, or .XML
+- Portable Document Format, or. PDF
+- JavaScript Object Notation, or .JSON
+
+**Data Sources**
+
+- Relational Databases
+- Flat File and XML datasets
+- APIs and Web Services
+- Web Scraping
+  - Popular web scraping tools: BeautifulSoup, Scrapy, Pandas, Selenium
+- Data Streams and Feeds
+  - Popular technologies used to process data streams include: Kafka, Apache Spark and Apache Storm
+  - RSS(Really Simple Syndication) Feeds: capturing data from online forums and news sites where data is refreshed on an ongoing basis.
+
+**Meta Data**:
+
+Metadata is data that provides information about other data.
+
+Three main types of metadata:
+
+- Technical metadata
+  - Defines the data structures in data repositories or platforms, primarily from a technical perspective.
+  - eg:
+    - Tables that record information about the tables stored in a database
+    - A data catalog, which is an inventory of tables that contain information
+  - For relational databases, technical metadata is typically stored in specialized tables in the database called the *System Catalog*.
+- Process metadata
+  - Describes the processes that operate behind business systems such as data warehouses, accounting systems, or customer relationship management tools.
+  - Tracking things like:
+    - process start and end times
+    - disk usage
+    - where data was moved from and to
+    - how many users access the system at any given time
+  - Invaluable for troubleshooting and optimizing workflows and ad hoc queries.
+- Business metadata
+  - Information about the data described in readily interpretable ways, such as:
+    - how the data is acquired
+    - what the data is measuring or describing
+    - the connection between the data and other data sources
+  - Useful for users who want to explore and analyze data. Help them to find data which is meaningful and valuable and know where the data can be accessed from.
+
+Metadata management:
+
+- Creation of a reliable, user-friendly data catalog is the primary objective of a metadata management model.
+- A modern metadata managment model will include a web-based user interface that enables users to easily search for and find information on key attributes such as CustomerName or ProductType.
+- This kind of model is central to any Data Governance initiative.
+- Well managed metadata helps to understand both the business context associated with the enterprise data and the data lineage, which helps to improve data governance.
+- **Data lineage** provides information about the origin of the data and how it gets transformed and moved, and thus it facilitates tracing of data errors back to their root cause.
+- The key focus areas of **data governance**:
+  - include
+    - availability
+    - usability
+    - consistency
+    - data integrity
+    - data security
+  - includes establishing processes to ensure effective data management throughout the enterprise such as accountability for the adverse effects of poor data quality and ensuring that the data which an enterprise has can be used by the entire organization.
+- Popular metadata management tools:
+  - IBM InfoSphere Information Server
+  - CA Erwin Data Modeler
+  - Oracle Warehouse Builder
+  - SAS Data Integration Server
+  - Talend Data Fabric
+  - Alation Data Catalog
+  - SAP Information Steward
+  - Microsoft Azure Data Catalog
+  - IBM Watson Knowledge Catalog
+  - Oracle Enterprise Metadata Management (OEMM)
+  - Adaptive Metadata Manager
+  - Unifi Data Catalog
+  - data.world
+  - Informatica Enterprise Data Catalog
