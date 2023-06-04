@@ -310,3 +310,79 @@ Metadata management:
   - Unifi Data Catalog
   - data.world
   - Informatica Enterprise Data Catalog
+
+### Data Repositories
+
+Data repositry is a general term used to refer to data that has been collected, organized and isolated for using in business operations as well as business and data analysis.
+
+Types:
+
+- Databases
+  - Collection of data for input, storage, search, retrieval and modification of data.
+  - DBMS is a set of programs for creating and maintaining the database. Allows to store, modify and extract info from database using queriesd.
+  - Types of databases:
+    - Relational
+    - Non-relational
+- Data Warehouses
+  - Consolidates data through the ETL process into one comprehensive database for analytics and business intelligence.
+- Big Data Stores
+  - Distributed computational and storage infrastructure to store, scale and process very large datasets.
+  
+#### RDBMS
+
+- Collection of data organized into a table structure where the tables can be linked or related based on data common to each.
+- Ideal for the optimized storage, retrieval and processing of large volumes of data.
+- Relational databases can be:
+  - Open-source with internal support
+  - Open-source with commercial support
+  - Commercial closed-source
+  - eg: IBM DB2, MS SQL Server, MySQL, Oracle Database, PostgresSQL
+  - Cloud based relational database services
+    - eg: Amazon RDS, Google Cloud SQL, IBM DB2 on Cloud, Oracle Cloud, Azure SQL
+- Advantages
+  - Create meaningful information by joining tables
+  - Flexibility to make changes while the database is in use
+  - Minimize data redundancy
+  - Ease of backup and disaster recovery by offering export and import options.
+  - ACID compliant, ensuring accuracy and reliability in database transactions.
+- Use cases
+  - OLTP
+  - Datawarehouse(OLAP)
+  - IoT Solutions
+- Limitations
+  - Does not work well with semi-structured and unstructured data.
+  - Entering a value greater than the defined length of a data field results in loss of information
+
+#### NoSQL
+
+- Provides flexibile schemas for the storage and retrieval of data.
+- Chosen for their attributes arond scale, performance and ease of use.
+- Built for specific data models
+- Has flexibile schemas that allow programmers to create and manage modern applications.
+- Do not use a traditional row/column/table database desing with fixed schemas.
+- Can store structured, semi-structure and unstructured data.
+- Based on model being used for storing data, four common types of NoSQL databases:
+  - Key-value store
+    - Storing data as collection of key-value pairs.
+    - **Key**: attribute of data that is a unique identifier.
+    - eg: Redis, Memcached, DynamoDB
+    - Usecases: user session data, user preferences, real-time recommendations, targeted advertising, in-memory data caching.
+  - Document based
+    - Store each record and it associated data within a single document.
+    - Enable flexibile indexing, powerful adhoc queried and analytics over collection of documents.
+    - Usecases: eCommerce platforms, medical records storage, CRM platforms and analytics platforms.
+    - eg: MongoDB, DocumentDB, CouchDB, Cloudant
+  - Column based
+    - Data is stored in cells groupd as columns of data instead of rows.
+    - A logical grouping of columns is referred to as a column family.
+    - As all cells corresponding to a column are saved as a continuous disk entry, making access and search easier and faster.
+    - Use cases: systes that required heavy write requests, storing time-series data, weather data and IoT data.
+    - Not good for: running complex queries, change quering pattern frequently.
+    - eg: Cassandra, HBase
+  - Graph based
+    - Use a graphical model to represent and store data.
+    - Use for visualizing, analyzing and finding connections between different pieces of data.
+    - Good for: social networks, product recommendations, network diagrams, fraud detection, access management.
+    - Not god for processing high volumes of transactions
+    - eg: Neo4J, CosmosDB
+- 
