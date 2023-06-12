@@ -234,7 +234,7 @@ A set of tools and processes that cover the entire journey of data from source t
 - Collect data from multiple data sources and present them in a visual format, such as interactive dashboards.
 - Visualize data in real-time and pre-defined schedule
 
-**File formats**
+**File formats**:
 
 - Delimited text file formats eg: CSV, TSV
 - Microsoft Excel Open .XML spredsheet, or .XLSX
@@ -242,7 +242,7 @@ A set of tools and processes that cover the entire journey of data from source t
 - Portable Document Format, or. PDF
 - JavaScript Object Notation, or .JSON
 
-**Data Sources**
+**Data Sources**:
 
 - Relational Databases
 - Flat File and XML datasets
@@ -385,4 +385,56 @@ Types:
     - Good for: social networks, product recommendations, network diagrams, fraud detection, access management.
     - Not god for processing high volumes of transactions
     - eg: Neo4J, CosmosDB
-- 
+
+#### Data Warehouses, Data Marts and Data Lakes
+
+**Data Warehouses**:
+
+- Used for storing modelled, structured, analysis ready data
+- Has a 3-tier architecture
+  - Database Servers(extracting data from different sources)
+  - OLAP Server(process and analyze information coming from database servers)
+  - Client-Front end layer for quering, reporting and analyzing data
+- Benefits of cloud-based data warehouses:
+  - Lower costs
+  - Limitless storage and compute capabilities
+  - Scale on a pay-as-you-go basis
+  - Faster disaster recovery
+  - eg: teradata, Oracle Exadata, IBM Db2, Netezza, Amazon Redshift, Google BigQuery, Cloudera, Snowflake
+  
+**Data Marts**:
+
+- Sub-section of the data warehouse.
+- Build specifically for a particular business function, purpose or community of users.
+- Three types:
+  - Dependent
+    - Offer analytical capabilities for a restricted area of a Data Warehouse.
+    - Provides isolated security and performance
+  - Independent
+    - Created from sources other than an Enterprise Data Warehouse such as Internal Operational Systems or External Data.
+  - Hybrid
+    - Combine inputs from Data Warehouses, Operational Systems and External Systems.
+- Purpose:
+  - Provide relavant data to users on time.
+  - Accelerate business processes
+  - Provide a cost and time efficient way in which data driven decisions can be taken.
+  - Improve end-user response time
+  - Provide secure access and control
+
+**Data Lakes**:
+
+- Store large amounts of structured, semi-structured and unstructured data in their native format.
+- Data can be loaded without pre-defined structure and schema
+- Exists as a repository of raw data straight from the source, to be transformed based on the use case.
+- Data is classified, protected and governed.
+- A reference architecture that combines multiple technologies.
+- Can eb deployed using
+  - Cloud Object Storage eg: Amazon S3
+  - Large-scale distributed systems such as Apache Hadoop
+  - RDBMS or NoSQL data repositories
+- Benefits:
+  - Ability to store all types of data(unstructured, semi-structured and structured data)
+  - Agility to scale based on storage capacity
+  - Saving time in defining structures, schemes and transformations as data is imported in original format.
+  - Ability to repurpose data in several different ways and use cases.
+  - Vendors providing data lakes: Amazon, cloudera, Google, IBM, Informatica, Microsoft, Oracle, SAS, Snowflake, Teradata
