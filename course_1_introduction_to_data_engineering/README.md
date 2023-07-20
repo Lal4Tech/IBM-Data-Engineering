@@ -98,7 +98,7 @@ It involves:
   - Extracting, integrating and organizing data from disparate sources
   - It includes
     - Data acquistion from multiple sources
-    - Data architecture for stroing source data
+    - Data architecture for storing source data
 - Processing data
   - Cleaning, transforming and preparing data to make it usable
   - For this we need:
@@ -373,7 +373,7 @@ Types:
     - Usecases: eCommerce platforms, medical records storage, CRM platforms and analytics platforms.
     - eg: MongoDB, DocumentDB, CouchDB, Cloudant
   - Column based
-    - Data is stored in cells groupd as columns of data instead of rows.
+    - Data is stored in cells grouped as columns of data instead of rows.
     - A logical grouping of columns is referred to as a column family.
     - As all cells corresponding to a column are saved as a continuous disk entry, making access and search easier and faster.
     - Use cases: systes that required heavy write requests, storing time-series data, weather data and IoT data.
@@ -437,4 +437,208 @@ Types:
   - Agility to scale based on storage capacity
   - Saving time in defining structures, schemes and transformations as data is imported in original format.
   - Ability to repurpose data in several different ways and use cases.
-  - Vendors providing data lakes: Amazon, cloudera, Google, IBM, Informatica, Microsoft, Oracle, SAS, Snowflake, Teradata
+  - Vendors providing data lakes: Amazon, cloudera, Google, IBM, Informatica, Microsoft, Oracle, SAS, Snowflake, Teradata.
+
+**A data swamp**:
+
+- is a data lake containing duplicate, inaccurate and incomplete data.
+- Usually the result of a lack of processes and standards. 
+- Data in a data swamp is difficult to find, manipulate, and—inevitably—analyze.
+
+**Data Lakehouse**:
+
+- Combine the best of data lake and data warehouse.
+- We get flexibility and cost effectiveness of data lake.
+- We get the performance and structure of data warehouse.
+- From a value point of view, the lakehouse provides us with a cost-effective means of storing data from a rapidly increasing array of new sources. It also utilizes built-in data management and governance layers to enable swift execution of business intelligence and high-performance machine learning tasks.
+
+#### Considerations for choosing Data Repository
+
+- Types of data: structured, semi-structured or unstructured.
+- Data schema
+- Peformance requirements
+- Data at rest or streaming data
+- Encryption needs
+- Volume of data
+- Storage requirements
+- Frequency of data access
+  - Frequent updates
+  - Keep for long time
+- Type of access
+  - At short intervals
+  - Run long-running queries
+- Purpose
+  - Transactional
+  - Analytical
+  - Archival
+  - Data warehousing
+- Compatibility of the data repository with Existing ecosystem of
+  - Organization standards
+  - programming languages
+  - Tools and Processes
+- Security features of the data repository
+- Scalability from a long-term perspective
+- Consideration of existing skills and want to foster
+- Cost
+
+#### ETL, ELT and Data Pipelines
+
+**ETL**(Extract, Transform and Load) process is an automated process which includes:
+
+- Gather raw data differnt sources
+- Extract information needed for reporting/analysis
+- Clean, standardize and transform data into usable format
+- Load/transport processed data into a data repository
+
+Extraction can be through:
+
+- Batch processing. Example tools: Blendo, Stitch
+- Stream processing. Example tools: Apache Samza, Apache Storm and Apache Kafka
+
+Transforming data:
+
+- eg:
+  - standardize date formats and units of measurement
+  - Removing duplicate data
+  - Filtering out data ths is not required
+  - Enrich data
+  - Form key relationship across tables
+  
+Loading:
+
+- Initial loading: populate all the data in the repository.
+- Incremental loading: apply updates and modifications periodically.
+- Full refresh: eracing and reloading with fresh data
+
+Load verification: checks for
+
+- Missing or null values
+- Server performance
+- Load failures
+
+Popular ETL tools:
+
+- IBM Infosphere Information Server
+- AWS Glue
+- Improvado
+- Skyvia
+- HEVO
+- Informatica PowerCenter
+
+In the **ELT**(Extract, Load and Transform) process:
+
+- Extracted data is first load into the target system and transformation are getting applied after in the target system.
+- The destination system for an ELT pipeline mostly a data lake or a data warehouse.
+- Ideal for Data Lakes
+- Advantages:
+  - Helps processing large sets of unstructured and non-relational data.
+  - By delivering raw data directly to the destination system instead of staging, we can reduce the cycle time between extraction and delivery.
+  - Allows to ingest the large volume of data immediately as they become available.
+  - Provide greater flexibility for exploratator data analytics.
+  - Tranform only data which is required for analysis. So, can be leveraged for multiple use cases.
+  - More suited for Big Data.
+
+**Data Pipeline**:
+
+- Encomposses the entire journey of moving data from one system to another including the ETL process.
+- Can be used for both batch and streaming data.
+- Destinations can be data lake, data warehoues, applications and visualization tools.
+- eg for data pipeline solutions:  Apache Beam, Airflow and Data Flow
+
+#### Data Integration
+
+> Data Integration is a descipline comprising the practices, architectural techniques and tools that allow organizations to ingest, transform, combine and provision data across various data types.
+-- Gardner report - Magic Quadrant for Data Integration
+
+Includes
+
+- Access/query/extract data from operations systems.
+- Transform/merge extracted data logically/physically.
+- Data quality and governence
+- Deliver data through an integrated approach for analytics purposes.
+
+Data Integration Usage schenarios:
+
+- Data consistency across applications
+- Master data management
+- Data sharing between enterprises
+- Data migration and consolidation
+
+Data Integration vs Data Pipeline
+
+- Data Integration Platforms combine disparate sources of data, physically or logically, to provide a unified view of the data for analytics purposes.
+- Data pipeline convers the entire journey of data from source to destination systems.
+- Can use Data pipeline to perform data integration.
+- ETL is the process within the data integration.
+
+Capabilities fo Moden data integrtion platform:
+
+- Pre-built connectors and adapters
+- Open-source architecture
+- Optimization for both batch and stream processing of data.
+- Integration with Big data sources.
+- Additional functionalities for data quality, governance, compliance and security.
+- Portability between on-premise and different type of cloud environments.
+
+Data Integration tools:
+
+- IBM Inforsphere Information Server
+- Cloud Pak for Data
+- Cloud Pak for Integration
+- IBM Data Replication
+- IBM Data Virtualization Manager
+- IBM Infosphere Information Server on Cloud.
+- IBM InforSphere DataStage
+- Open source tools examples:
+  - boomi
+  - Jitterbit
+  - snampLogic
+- Cloud-based integration Plantform as a Service(iPaaS):
+  - Adeptia Integration Suite
+  - Google Cloud's Cooperation 534
+  - IBM's Application Integration Suite on Cloud
+  - Informatica's Integration Cloud
+
+#### Commonly used tools, Databases, Data repositoris
+
+- RDBMS databases:
+  - MySQL
+  - MariaDB
+  - PostgreSQL
+  - IBM Db2
+  - MS SQL Server
+- NoSQL databases:
+  - MongoDB
+  - Cassandra
+- Graph databases:
+  - Neo4J
+- Languages
+  - Python
+- Data Pipeline
+  - Apache Airflow
+- Data Integration
+  - Okada
+- Bigdata Systems
+  - Hadoop
+  - Spark
+- Streaming data
+  - Kafka
+  - WebSphere MQ
+- ETL
+  - Talend
+- Web scraping
+  - Beautiful Soup
+  - Scrappy
+- Data Warehouse
+  - AWS Redshift
+- Data Lake
+  - AWS S3
+- Data migration tools
+  - SSIS
+  - Apache Nifi
+- Version Control
+  - Git
+- Devops
+  - Jenkins
+  - Docker
+  - Sonarqube
