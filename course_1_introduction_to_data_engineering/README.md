@@ -642,3 +642,311 @@ Data Integration tools:
   - Jenkins
   - Docker
   - Sonarqube
+
+### Big Data Platforms
+
+#### Foundations
+
+**V's of Big Data**:
+
+- Velocity
+- Volume
+- Variety
+- Veracity
+- Value
+
+#### Big Data processing tools
+
+Provide ways to work with large sets of structured, semi-structured and unstructured data to derive value from them.
+
+**Apache Hadoop**:
+
+- A collection of tools that provides distributed storage and processing of data.
+- A collection of node(a single computer) form a cluster.
+- Provides reliable, scalable and cost-effective solution for storing data with no format requirements.
+- Benefits:
+  - Better real-time data-driven decitions
+  - Improved data access and analysis
+  - Data offload and consolidation
+- Components:
+  - HDFS(Hadoop Distributed File System)
+    - Higher availability
+    - Better scalability
+    - Data locality
+    - Faut tolerance
+
+**Apache Hive**:
+
+- A data warehouse for data query and analysis built on top of hadoop.
+- Enables reading, writing and managing large data set files that are stored directly in either HDFS or other data storage systems such as Apache HBase.
+- Queries have high latency -> Not suitable for applications that need fast response times.
+- Read-based -> Not suitable for transaction processing that involves a high percentage of write operations.
+- Better suited for -> ETL, reporting and data analytics.
+
+**Apache Spark**:
+
+- A distributed analytics framework for complex, real-time data analytics.
+- Takes the advantage of in-memory processing which significantly increases computation speed.
+- Provide interfaces to major programming languages such as Java, Scala, Python etc.
+- Can run using a standalone clustering technology and also can run on top of other infrastructures like Hadoop.
+- Can access data in a large variety of data sources including HDFS and Hive.
+
+<hr style="border:2px solid gray">
+
+## Data Engineering Lifecycle
+
+### Data platforms, stores and Security
+
+#### Data Platform Architecture
+
+**Layers of Data Platform Architecture**:
+
+1. Data Ingestion or Data Collection Layer
+   - Connect to data sources
+   - Transfer data from data sources to the data platform in streaming or batch modes.
+   - Maintain information about the data collected in the *metadata repository*
+   - Tools for Data Ingestion
+     - Googe Cloud Data Flow
+     - IBM Streams
+     - IBM Streaming Analytics on Cloud
+     - Amazon Kinesis
+     - Apache Kafka
+2. Data Storage and Integration Layer
+   - Store data for processing and long-term use
+   - Transform and merge extracted data, either logicall or physically
+   - Make data available for processing in both streaming and batch modes
+   - It has to be
+     - Reliable
+     - Scalable
+     - High-performing
+     - Cost efficient
+   - Examples
+     - IBM Db2
+     - MS SQL Server
+     - MySQL
+     - Oracle Database
+     - PostgreSQL
+   - Cloud databases(Database-as-a-Service):
+     - IBM Db2 on Cloud
+     - Amazon RDS
+     - Google Cloud SQL
+     - SQL Azure
+   - Non_relational Database:
+     - IBM Cloudant
+     - Redis
+     - MongoDB
+     - Cassandra
+     - Neo4J
+   - Integration Tools:
+     - IBM's Cloud Pak for Data
+     - IBM's Cloud Pak for Integration
+     - Talend Data Frabric
+     - OpenStudiota
+   - Open-source Integration tools:
+     - Dell boomi
+     - SnapLogic
+   - Cloudbased Platform as a Service(iPaaS)
+     - Adeptia Integration Suite
+     - Google Cloud's Cooperation 534
+     - IBM's Application Integration Suite on Cloud
+     - Informatica's Integration Cloud
+3. Data Processing Layer
+   - Read data in batch or streaming modes
+   - Support popular quering tools and programming languages
+   - Scale to meet the processing demands of a growing dataset 
+   - Provide a way for analysts and data scientists to work with data in data platform.
+   - Transformation tasks:
+     - *Structuring* - actions that change the data form/schema
+     - *Normalization* - cleaning the database of unused data and reducing redunancy and inconsistency
+     - *Denormalization* - combining data from multiple tables into a single table so that it can be queried more efficiently.
+     - *Data Cleaning* - Fixing irregularities in data to provide credible data for downstream applications and uses.
+     - Tools
+       - Spreadsheets
+       - OpenRefine
+       - Google DataPrep
+       - Watson Studio Refinery
+       - Trifacta Wrangler
+       - Python/R Libraries
+     - Storage and processing may not always in seperate layers
+       - In case of Relational Databases, storage and processing can be in samel layer
+       - In Big Data Systems, data can be stored in HDFS and then can be processed with tools like Spark.
+4. Analysis & User Interface Layer
+   - Deliver processed data to data consumers(BI Analysts, Business stakeholders, Data scientists/Analyists. Other Applications & Services).
+   - Need to support 
+     - Querying tools and programming languages
+     - APIs that can be used to run reports on data for both online and offline processing.
+     - APIs that can consume data from the storage in real-time for use in other applications and services.
+     - Dashboaring and Business Intelligence applications.
+5. Data Piepline layer
+   - Reponsible for implementing and maintaining a continuosly flowing data pipeline.
+   - Toosl
+     - Apache Airflow
+     - Data Flow
+
+**Designing Data Stores**:
+
+A data repository can be:
+
+- Database
+- Data Warehouse
+- Data Mart
+- Big Data Store
+- Data Lake
+
+Considerations for designing a data store:
+
+- Type of data
+  - Relational databases for structured data
+  - Non-relational databases for semi/unstructured data
+    - Key-value
+    - Document based
+    - Column based
+    - Graph based
+- Volume/scale of data
+  - To store large volumes of data in its native format, a data lake would be a good choice
+  - Big data store for not only high volume but also for high velocity, deverse types and for distributed processing for fast analytics.
+- Intended use of data
+  - Number of transactions
+  - Frequency of updates
+  - Types of operations
+  - Response time
+  - Backup and recovery
+- Storage considerations
+  - Performance: Throughput and Latency
+  - Availability: able to ccess data when required
+  - Integrity: safe from corruption, loss and outside attack
+  - Recoverability:  able to revover data in the event of failures and natural disasters.
+- Privacy, Security and Governance needs
+  - Is a layerd approach
+  - Includes: Access control, Multizone Encryption, Data management and monitoring systems.
+  - Comply with regularions such as GDPR and HIPA.
+  - Data needs to be made available through controlled data flow and data management by using multiple data protection techniques.
+  - Strategies for data privacy, security and governance regulations
+
+**Security**:
+
+Data platforms security level:
+
+- Physical
+- Network
+- Application and Data
+
+Key components to create an effective strategy for information secrutiy, CIA Triad:
+
+- *Confidentiality*: through cotntrolling unauthoized access.
+- *Integrity*: through validating the resources are trustworthy and not been tampared with.
+- *Availability*: by ensuring authorized users have access to resources when required.
+
+### Data Collection and Data Wrangling
+
+**Data Collection**:
+
+- Query languages
+  - SQL is a querying language used for extracting information from relational databases.
+  - Non relational databases can be queried using SQL or SQL like query languages.
+- APIs
+  - Can be used for extracting data from variety of data sources.
+  - Can also be used for data validation
+- Extract data from web
+  - Web srapping
+  - RSS feeds
+- Data streams and feeds are also used for extracting data from social media sites and interactive platforms.
+- Data Exchange platforms
+  - allow the data exchange between data providers and data consumers.
+  - eg: AWS DataExchange, Crunhbase, Lotame, Snowflake
+
+**Data Wrangling**:
+
+- Is an iterative process involves
+  - Data exploration
+  - Transformation
+    - Involves actions that change the form and schema of data
+    - Joins and Unions
+    - Normalization and Denormalization of data
+    - Cleaning
+  - Validation
+  - Making data available for credible and meaningful analysis
+- Tools
+  - Excel Power Query / Spreadsheets
+  - OpenRefine
+  - Google DataPrep
+  - Watson Studio Refinery
+  - Trifacta Wrangler
+  - Python
+  - R
+
+### Querying Data, Performance Tuning and Troubleshooting
+
+**Quering and Analyzing data**:
+
+- Counting and Aggregating
+- Identifying extreme values
+- Slicing data
+- Sorting data
+- Filtering Patterns
+- Grouping data
+- Data can also be queried using APIs
+
+**Peformance Tuning and Troubleshooting**:
+
+- A data pipeline typically runs with a combination of complex tools and can face several different types of performance threats include
+  - Scalability in the face of increasing data sets and workloads
+  - Application failures
+  - Scheduled jobs not functioning accurately
+  - Tool incompatibilities
+- Data pipeline - Performance metrics
+  - Latency: the time for a service to fufill a request.
+  - Failures: the rate at which a service fails
+  - Resource utilization and utilization patterns
+  - Traffic: number of user requests received in a given period
+- Data pipeline - Troubleshooting
+  - Collect informtion about the incident to ascertain if observed behavior is an issue.
+  - Check if using right version of software and source codes.
+  - Check the logs and metrics.
+  - Reproduce the issue in a test env.
+- Database optimization for performance
+  - Peformance metrics for databse:
+    - System outages
+    - Capacity utilization
+    - Application slowdown
+    - Peformance of queries
+    - Conflicting actitivities and queries being executed simultaneously
+    - Batch activities causing resource constraints
+  - Cpacity planning - Determine the optimal hardware and software resources required for perfomance
+  - Database Indexing - Locating data without searching each row in a database resulting in faster quering.
+  - Database partitioning - Divide large tables into smaller to improve performance and data manageability.
+  - Database normalization - Reducing inconsistencies, redunancy and anomoalies.
+- Monitoring systems
+  - Helps to collect quantitative data about systems and application in real time.
+  - Visibilty into the peformance of data pipelines, platforms, databases, applications, tools, queries, scheduled jobs etc.
+
+### Governance and Compliance
+
+Data Governance is a collection of principles, practices and processes to maintain the:
+
+- Security
+- Privacy
+- Integrity
+
+through its lifecycle.
+
+Regulations
+
+- GDPR
+- HIPAA
+
+Compliance: coveres the processes and procedures through which an organization adheres to regulations and conducts its operations in a legal and ethical manner.
+
+Tools and technologies play a critical role in the implementation of a governance framework, offering features such as:
+
+- Authentication and Access Control.
+- Encryption and Data Masking.
+- Hosting options that comply with requirements and restrictions for international data transfers
+- Monitoring and Alerting functionalities.
+- Data erasure tools that ensure deleted data cannot be retrieved.
+
+### DataOps Methodology
+
+![Data Ops](dataops.png)
+
+<hr style="border:2px solid gray">
