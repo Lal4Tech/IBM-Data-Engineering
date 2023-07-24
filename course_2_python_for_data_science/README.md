@@ -79,9 +79,139 @@
 
 ## Python Data Structures
 
+### List and Tuples
+
+**Tuples**:
+
+- Tuples are ordered sequences
+- eg: ```ratings = (7, 8, 4, 5, 9, 10)```
+- Different type of values in a tuple is possible: ```t = ('world', 12, 5.3)```; ```type(t)```: ```tuple```
+- Elements can be accessed by index.
+  - ```t[0]```: ```world```
+  - ```t[-1]```: ```5.3```
+- Concatenating
+  - ```t = t + ('python', 3.10)```
+  - ```print(t)```: ```('world', 12, 5.3, 'python', 3.10)```
+- Slicing
+  - ```t[0:3]```: ```('world', 12, 5.3)```
+  - ```len(t)```: ```5```
+- Tuples are immutable - ```t[2]=99``` is not possible
+- Nesting
+  - ```x = (1, 4, ("Hello", "World"), 3.4, ("Python", (3, 10)))```
+  - ```x[2]```: ```("Hello", "World")```
+  - ```x[4][1]```: ```(3, 10)```
+
+**Hands-on Lab**: [Tuples](labs/3-Tuples.ipynb)
+
+**Lists**:
+- Lists are ordered sequences
+- eg: ```l = ['Hello world', 2, 1.4]```
+- Concatenating, Slicing and Nesting are possible(similar to tuples)
+- Lists are mutable
+  - ```l[0] = "Hello Python"```
+  - ```l.extend(['python', 3.10])```: ```['Hello Python', 2, 1.4, 'python', 3.10]```
+  - ```l.append(['python', 3.10])```: ```['Hello Python', 2, 1.4, ['python', 3.10]]```
+  - ```del(l[0])```: ```[2, 1.4, ['python', 3.10]]```
+- Convert String to List
+  - ```"Hello World".split()```: ```["Hello", "World"]```
+  - ```"a,b,c,d"```: ```['a', 'b', 'c', 'd']```
+- If we asign list variable to another and try to change the element, then it will affect both variable as both variable referencing the same list. Cloning th3e variable can be used in this to solve this.
+  - ```a = ["Hello python", 3, 10.0]```
+  - ```b = a[:]```
+  - Now if we change a, b will not change
+
+**Hands-on Lab**: [Lists](labs/4-Lists.ipynb)
+
+### Dictionaries
+
+- Key-value pairs
+- Kyes have to be immutable and unique
+- Values can be immutable, mutable and duplicates
+- eg: ```dict = {'a': 1, 'b': 'hello', c: 3.4}```
+- ```dict['b']```: ```'hello'```
+- Add new value to the list - ```dict['d'] = 78```
+- To delete - ```del(dict['c'])```
+- To check if a key in dictionary - ```'b' in dict```: ```True```, ```'x' in dict```: ```False```
+- To get all keys in the dictionary - ```dict.keys()``` and to get values - ```dict.values()```
+
+**Hands-on Lab**: [Dictionaries](labs/5-Dictionaries.ipynb)
+
+### Sets
+
+- Unordered, mutable collection of different type of unique objects
+- eg: ```s = {1, "hello", (4, 9.5), "hello"}```: ```{1, "hello", (4, 9.5)}``` (duplicat elements will be removed)
+- Convert list to set
+  - ```a_list = [1, 4, 6, 4]```
+  - ```a_set = set(a_list)```
+  - ```a_set```: ```{1, 4, 6}```
+- Set Operations
+  - ```s = {"Hello World", "Python", 3.10}```
+  - Add element - ```s.add("Programming")```
+  - Remove element - ```s.remove("Programming")```
+  - Check if an element in set - ```"Programming" in s```: ```False```
+  - Mathematical operations
+    - ```s1 = {1, 5, 6, 8}```, ```s2 = {2, 5, 6, 9}```
+    - ```s1 & s2```: ```{5, 6}``````
+    - ```s1.union(s2)```: ```{1, 5, 6, 8, 2, 9}```
+    - ```s1.issubset(s2)```: ```False```
+
+**Hands-on Lab**: [Sets](labs/6-Sets.ipynb)
+
 <hr style="border:2px solid gray">
 
 ## Python Programming Fundamentals
+
+### Conditions and Branching
+
+**Comparison Operators**:
+
+- ```a = 6```
+- ```a == 7```: ```False```
+- ```a >= 5```: ```True```
+- ```"Hello" == "World"```: ```False```
+
+**Branching**:
+
+if-else statement:
+
+```python
+if (age > 18):
+  print("Welcome")
+else:
+  print("Move on!)
+```
+
+elif statement:
+
+```python
+if (age > 18):
+  print("Welcome")
+elif(age == 18):
+  print("Please go to School :D")
+print("Move on")
+```
+
+**Logic Operators**:
+
+- ```and```
+- ```or```
+
+```python
+year = 2000
+
+if ((year < 2000) and (year > 1990)):
+  print("Album was made in 90's")
+else:
+  print("Album was not made in 90's")
+```
+
+### Loops
+
+### Functions
+
+### Exception Handling
+
+### Objects and Classes
 
 <hr style="border:2px solid gray">
 
