@@ -219,6 +219,34 @@ else:
 
 ### Loops
 
+- range function
+  - ```range(3)```: ```[0, 1, 2]```
+  - ```range(10, 14)```: ```[10, 11, 12, 13]```
+
+```for``` loop:
+
+```python
+for i in range(5):
+  print(i ** 2)
+```
+
+```python
+l = [1, 3, 8]
+for idx, item in enumerate(l):
+  print(idx, item)
+```
+
+```while``` loop:
+
+```python
+i = 0
+while i < 10:
+  print(i)
+  i+=1
+```
+
+**Hands-on Lab**: [Loops](labs/8-Loops.ipynb)
+
 ### Functions
 
 ### Exception Handling
