@@ -165,6 +165,15 @@
 
 **Comparison Operators**:
 
+- ```==```
+- ```!=```
+- ```>```
+- ```<```
+- ```>=```
+- ```<=```
+
+Examples:
+
 - ```a = 6```
 - ```a == 7```: ```False```
 - ```a >= 5```: ```True```
@@ -195,6 +204,7 @@ print("Move on")
 
 - ```and```
 - ```or```
+- ```not```
 
 ```python
 year = 2000
@@ -204,6 +214,8 @@ if ((year < 2000) and (year > 1990)):
 else:
   print("Album was not made in 90's")
 ```
+
+**Hands-on Lab**: [Conditions](labs/7-Conditions.ipynb)
 
 ### Loops
 
