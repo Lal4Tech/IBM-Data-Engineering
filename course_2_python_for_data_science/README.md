@@ -249,7 +249,122 @@ while i < 10:
 
 ### Functions
 
+Reusable code block
+  
+**Built in functions**:
+
+- ```len```: return length of the sequence or collection.
+- ```len```: return sum of elements in collection
+- ```sorted``` vs ```sort```:
+  - ```sorted``` returns a new list. It does not change the original list.
+  - ```sort```on the other hand changes the original list and it does not return new list.
+
+**User defined Functions**:
+
+```python
+def add1(a):
+  """
+  add 1 to a
+  """
+  b = a + 1
+  return b
+
+print(add1(3)) ## rint 4
+```
+
+Multiple parameters:
+
+```python
+def mult(a, b):
+  c = a * b
+  return c
+
+print(mult(2, 3)) ## print 6
+```
+
+Functions without return:
+
+```python
+def no_return(s):
+  print(s)
+
+no_return("Hello!") # Print Hello!
+
+def no_work():
+  pass
+
+no_return() # Print None
+```
+
+Collecting arquments: when the number of arguments are unknown for a function, all can be packed into a tuple/dictionary
+
+```python
+# Example with tuple
+def print_names(*names):
+  for name in names:
+    print(name)
+
+print_names("Hello", "World", "Python") # in function, names = ("Hello", "World", "Python")
+print_names("Hello", "World") # in function, names = ("Hello", "World")
+```
+
+```python
+# Example with tuple
+def printDictionary(**args):
+    for key in args:
+        print(key + " : " + args[key])
+
+printDictionary(Name='John',State='Hesse',City='Frankfurt')
+``````
+
+**Hands-on Lab**: [Functions](labs/9-Functions.ipynb)
+
 ### Exception Handling
+
+To catch errors within a program
+
+**try-except statement**:
+
+```python
+try:
+  f = open("file.txt", "r")
+  f.write("File for exception handling!)
+except IOError:
+  print("Unable to open the file!)
+except:
+  print"Some other type of error occured!")
+```
+
+**try-except-else statement**:
+
+```python
+try:
+  f = open("file.txt", "r")
+  f.write("File for exception handling!)
+except IOError:
+  print("Unable to open the file!)
+else:
+  print"The file was written successfully")
+```
+
+**try-except-else-finally statement**:
+
+```python
+try:
+  f = open("file.txt", "r")
+  f.write("File for exception handling!)
+except IOError:
+  print("Unable to open the file!)
+else:
+  # execute only if no specified exception occured
+  print"The file was written successfully")
+finally:
+  # this will execute no matter the exceptions
+  f.close() 
+  print("The file is now closed")
+```
+
+**Hands-on Lab**: [Exceptions](labs/9-Functions.ipynb)
 
 ### Objects and Classes
 
