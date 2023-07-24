@@ -356,15 +356,15 @@ try:
 except IOError:
   print("Unable to open the file!)
 else:
-  # execute only if no specified exception occured
+  # else allows one to check if there was no exception when executing the try block
   print"The file was written successfully")
 finally:
-  # this will execute no matter the exceptions
+  # finally allows us to always execute something even if there is an exception or not.
   f.close() 
   print("The file is now closed")
 ```
 
-**Hands-on Lab**: [Exceptions](labs/9-Functions.ipynb)
+**Hands-on Lab**: [Exceptions](labs/10-Excecption.ipynb)
 
 ### Objects and Classes
 
