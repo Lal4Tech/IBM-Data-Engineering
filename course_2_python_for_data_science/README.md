@@ -478,8 +478,156 @@ df1.to_csv(new_file)
 
 ### Numpy
 
+A numpy array(nd-array) is similar to list, but contain data of same type.
+
+```python
+import numpy as np
+a = np.array([0, 1, 2, 3, 4])
+
+print(a[0]) # output: 0
+
+print(a.size) # output: 5
+
+print(type(a)) # output: numpy.ndarray
+
+print(a.dtype) # to objtain data type of elements. Here, output: dtype('int64')
+
+print(a.ndim) # number of dimensions or rank of the array. Here, output: 1
+
+print(a.shape) # size of the array in each dimension. Here, output: (5,)
+```
+
+**indexing and slicing**:
+
+```python
+c = np.array([20, 1, 2, 3, 4])
+
+c[0] = 100 # change first element of array to 100
+
+d = c[1:4] # d:array([1, 2, 3])
+
+c[3:5] = 300, 400 # c:array([100, 1, 2, 300, 400])
+```
+
+**Basic Operations**:
+
+Vector Addition and Subtraction:
+
+```python
+# Without numpy
+u = [1, 0]
+v = [0, 1]
+
+z = []
+
+for n, m in zip(u, v):
+  z.append(n + m)
+
+# With numpy
+z = u + v # z:array([1, 1])
+```
+
+Product:
+
+```python
+# Without numpy
+u = [1, 2]
+v = [3, 2]
+
+z = []
+
+for n, m in zip(u, v):
+  z.append(n * m)
+
+# With numpy
+z = u * v # z:array([3, 4])
+```
+
+Dot Product:
+
+```python
+import numpy as np
+
+# With numpy
+z = np.dot(u, v) # z:5
+```
+
+Adding constant to a numpy array:
+
+```python
+u = np.array([1, 2, 3, -1])
+z = u + 1 # z:array([2, 3, 4, 0])
+```
+
+**Universal Functions**:
+
+```python
+import numpy as np
+
+a = np.array([1, -1, 1, -1])
+mean_a = a.mean() # mean_a: 0.0
+
+b = np.array([1, -2, 3, 4, 5])
+max_b = b.max() # max_b: 5
+
+np.pi
+
+x = np.array([0, np.pi/2, np.pi])
+
+y = np.sin(x) # y:array([0, 1, 1.2e-16])
+
+np.linspace(-2, 2, num=5) # returns evenly spaced 5 numbers from specified interval. Here [-2, -1, 0, 1, 2]
+
+x = np.linspace(0, 2 * np.pi, 100)
+y = np.sin(x)
+plt.plot(x, y)
+```
+
+**Two Dimensional Numpy**:
+
+```python
+a = [[11, 12, 13], [21, 22, 23], [31, 32, 33]]
+
+A = np.array(a)
+
+print(A.ndim) # output: 2
+
+print(A.shape) # output: 3, 3
+
+print(A.size) # output: 9
+
+print(A[0:2, 2]) # output: array([13, 23])
+
+# element-wise addition
+x = np.array([[1, 0], [0, 1]])
+y = np.array([[2, 1], [1, 2]])
+z = x + y # z:array([[3, 1], [1, 3]])
+
+# scalar multiplication
+y = np.array([[2, 1], [1, 2]])
+z = 2 * y # z: array([[4, 2], [2, 4]])
+
+# element-wise product
+x = np.array([[1, 0], [0, 1]])
+y = np.array([[2, 1], [1, 2]])
+z = x * y # z:array([[2, 0], [0, 2]])
+
+# matrix multiplication
+A = np.array([[0, 1, 1], [1, 0, 1]])
+B = np.array([[1, 1], [1, 1], [-1, 1]])
+Z = np.dot(A, B) # z:array([[0, 2], [0, 2]])
+```
+
+**Hands-on Lab**: [One dimensional Numpy Operations](labs/17-Numpy1D.ipynb)
+
+**Hands-on Lab**: [Two dimensional Numpy Operations](labs/18-Numpy2D.ipynb)
+
 <hr style="border:2px solid gray">
 
 ## APIs and Data Collection
+
+### Simple APIs
+
+### REST APIs, Webscrapping and Working with Files
 
 <hr style="border:2px solid gray">
