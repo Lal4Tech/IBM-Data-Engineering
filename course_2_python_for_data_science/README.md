@@ -418,6 +418,48 @@ c.add_radius(8)
 
 ## Working with Data in Python
 
+### File Operations
+
+**Reading files**:
+
+```python
+# f is the file object, first parameter is file name and second parameter is the mode: r-read, w-write, a-append
+f = open("file_name", "r") 
+
+print(f.name) # will print the file name. here 'file_name'
+print(f.mode) # will print the file mode. here 'r'
+
+f.close() # to close the file object
+```
+
+Use ```with``` statement for open the file as it automatically closes the file after operations.
+
+```python
+with open("file_name", "r") as f:
+  content = f.read()
+  print(content)
+```
+
+Function ```readline()``` can be used to read one line of a file at a time. ```readlines()``` can be used to read and save lines to a list.
+
+**Hands-on Lab**: [Read file](labs/13-ReadFile.ipynb)
+
+**Writing files**:
+
+```python
+with open("file_name", "w") as f:
+  f.write("This is line 1\n")
+  f.write("This is line 2\n")
+```
+
+use mode ```a``` to append to the file instead of over writing.
+
+**Hands-on Lab**: [Write file](labs/14-WriteFile.ipynb)
+
+### Pandas
+
+### Numpy
+
 <hr style="border:2px solid gray">
 
 ## APIs and Data Collection
