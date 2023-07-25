@@ -458,6 +458,24 @@ use mode ```a``` to append to the file instead of over writing.
 
 ### Pandas
 
+```python
+import pandas as pd
+csv_path = 'file.csv'
+df = pd.read_csv(csv_path)
+df.head()
+
+print(df.ix[0,0]) # access the first-row and first column in the dataframe
+
+df1 = df[df['age'] > 18]
+new_file = 'file_new.csv'
+df1.to_csv(new_file)
+
+```
+
+**Hands-on Lab**: [Pandas Basics](labs/15-Pandas_Basics.ipynb)
+
+**Hands-on Lab**: [Pandas Load Data](labs/16-Pandas_LoadData.ipynb)
+
 ### Numpy
 
 <hr style="border:2px solid gray">
