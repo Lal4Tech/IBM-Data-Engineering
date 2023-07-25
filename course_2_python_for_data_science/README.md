@@ -368,6 +368,52 @@ finally:
 
 ### Objects and Classes
 
+In Python everything(int, float, str, boolean, list, tuple, set, dict etc) is an object.
+
+- Every Object has:
+  - a type
+  - an internal data representation(blueprint)
+  - a set of procedures(methods) to interact with object.
+- An object is an instance of a particular type.
+- A class has
+  - Data attributes
+  - Methods
+- Objects are instances of class
+  
+Example:
+
+```python
+class Circle(object): # define class, here the attribute object represent the parent class
+    # function __init__ is a special method(constructor) used to initialize data attributes
+    def __init__(self, radius, color):
+      # self parameter represent newly created instance of class
+      # data attributes(parameters) used to initialize each instance of the class
+      self.radius = radius
+      self.color = color
+
+    def add_radius(self, r):
+      # method to add radius
+      self.radius = self.radius + r
+
+# Create an object of class Circle
+c = Circle(10, "blue")
+
+# Access the object attribute values
+print(c.radius) # will print 10
+
+# Change the object attribute value
+c.color = "red"
+
+# Call method
+c.add_radius(8)
+```
+
+```dir(<name of object>)``` can be used ot list the attribute and methods associated with class.
+
+**Hands-on Lab**: [Classes](labs/11-Classes.ipynb)
+
+**Hands-on Lab**: [Text Analysis](labs/12-Text_Analysis.ipynb)
+
 <hr style="border:2px solid gray">
 
 ## Working with Data in Python
