@@ -104,4 +104,7 @@ log("ETL Job Ended")
 
 ## Final Project
 
+**Hands-on Lab**: [Web Scrapping](labs/2-Project_Webscraping.ipynb)
+
+
 <hr style="border:2px solid gray">
