@@ -628,6 +628,32 @@ Z = np.dot(A, B) # z:array([[0, 2], [0, 2]])
 
 ### Simple APIs
 
+APIs let two pieces of softwares talk to each other.
+
+REST(**RE**presentational **S**tate **T**ransfer) APIs are a type of APIs. They allow us to communicate through internet and leting us to take advantage of resources such as storage.
+
+- Client and Resource(Web services) are end points communicating each other.
+- Client find/use the service via *end point*.
+- Client request to the resource via end web services send response to the client.
+- The request is usually communicated via an *HTTP* message which usually contain a JSON which contain instructions for what operation to be performed.
+- API keys are used for identiying the clients and athorize the resources accordingly.
+- **PyCoinGecko** API to collect data
+
+```python
+!pip install pycoingecko
+from pycoingecko import CoinGeckoAPI
+
+cg = CoinGeckoAPI()
+bitcoin_data = cg.get_coin_market_chart_by_id(id='bitcoin', vs_currency='usd', days=30)
+
+data = pd.DataFrame(bitcoin_price_data, columns=['TimeStamp', 'Price'])
+data['Date'] = pd.to_datetime(data['TimeStamp'], unit='ms')
+
+aggregated_data = data.groupby(data.Date.dt.date).agg({'Price: ['min', 'max', 'first', 'last']})
+```
+
+**Hands-on Lab**: [Intro to API](labs/19-Intro_API.ipynb)
+
 ### REST APIs, Webscrapping and Working with Files
 
 <hr style="border:2px solid gray">
