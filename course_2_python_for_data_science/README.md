@@ -656,4 +656,78 @@ aggregated_data = data.groupby(data.Date.dt.date).agg({'Price: ['min', 'max', 'f
 
 ### REST APIs, Webscrapping and Working with Files
 
+**HTTP Methods**:
+
+- *GET*: Retrieves data from the server
+- *POST*: Submits data to serbver
+- *PUT*: Updates ata already on server
+- *DELETE*: Deletes data from server
+
+**REST API common status codes**:
+
+- 1XX : Informational
+- 100: Everything So Far is OK
+- 2XX: Success
+- 200: OK
+- 3XX: Redirection
+- 300: Multiple Choices
+- 4XX: Client Error
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not Found
+- 500: Server Error
+- 501: Not Implemented
+
+**Get Requests**:
+
+```python
+import requests
+ur = 'http:/www.ibm.com/'
+r = requests.get(url)
+print(r.status_code) # if 200: success
+print(r.request.headers) # requst headers
+prrint(r.headers) # outputs reponse headers
+```
+
+request with parameters:
+
+```python
+import requests
+
+url_get = 'http://httpbin.org/get'
+payload = {"name": "John", "ID": "123"}
+r = requests.get(url_get, params=payload)
+
+print(r.url) # Output: 'http://httpbin.org/get?name=John&ID=123'
+print(request.body) # Output: None
+print(r.text) # Print the content in text
+print(r.headers['Content-Type']) # Outputs content type. eg: 'application/json'
+
+print(r.json()) # if the content-type is json, we can format it using json
+```
+
+**Post Requests**:
+
+Post request send the data in the request body. Not in request URL.
+
+```python
+import requests
+
+url_post = 'http://httpbin.org/post'
+payload = {"name": "John", "ID": "123"}
+r_post = requests.post(url_post, data=payload)
+
+print(r_post.request.body) # Output: name=John&ID=123
+print(r.request.body) # Output: None for the get method
+
+print(r_post.json()['form']) # {'ID': '123', 'name': 'John'}
+```
+
+**Hands-on Lab**: [Access REST APIS](labs/20-Requests_HTTP.ipynb)
+
+**Hands-on Lab**: [API Examples](labs/21-API_Examples.ipynb)
+
+**HTML for Webscrapping**:
+
+
 <hr style="border:2px solid gray">
