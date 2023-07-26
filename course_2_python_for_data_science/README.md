@@ -727,7 +727,41 @@ print(r_post.json()['form']) # {'ID': '123', 'name': 'John'}
 
 **Hands-on Lab**: [API Examples](labs/21-API_Examples.ipynb)
 
-**HTML for Webscrapping**:
+**Webscrapping**:
 
+Is a process that can be used to automatically extract information from a website.
+
+Using ```BeautifulSoup```:
+
+```python
+from bs4 import BeautifulSoup
+
+html = "<!DOCTYPE html><html><head>...</head><body>...</body></html>"
+
+soup = BeautifulSoup(html, 'html5lib')
+```
+
+BeautifulSoup represents html document as a nested data structure.
+
+```python
+tag_object=soup.title # tag_object: <title>Page Title</title>
+
+parent_tag = tag.child.parent
+sibling_1 = tag_object.next_sibling
+
+tag.child.attrs # to get the tag attributes as dict
+
+table_rows = table.find_all(name='tr') # find all tag elements as list
+
+for i, row in enumerate(table_rows):
+  print("row", i)
+
+  cells = row.find_all("td")
+
+  for j, cell in enumerate(cells):
+    print("column", j, "cell", cell)
+```
+
+**Hands-on Lab**: [Web Scrapping](labs/22-Web-Scraping.ipynb)
 
 <hr style="border:2px solid gray">
