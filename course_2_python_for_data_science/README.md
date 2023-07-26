@@ -764,4 +764,47 @@ for i, row in enumerate(table_rows):
 
 **Hands-on Lab**: [Web Scrapping](labs/22-Web-Scraping.ipynb)
 
+**Workig with different file formats**:
+
+Reading csv files:
+
+```python
+import pandas as pd
+
+f = "file_name.csv"
+df = pd.read_csv(f)
+df.columns = ['Name', 'Phone Number', 'Birthday']
+```
+
+Reading csv files:
+
+```python
+import json
+
+with open('file_name.json', 'r') as f:
+  json_obj = json.load(f)
+print(json_obj)
+```
+
+Reading XML files:
+
+```python
+import pandas as pd
+import xml.etree.ElementTree as etree
+
+tree = etree.parse("file_name.xml")
+root = tree.getroot()
+cols = ['Name', 'Phone Number', 'Birthday']
+df = pd.DataFrame(columns=cols)
+
+for node in root:
+  name = node.find("name").text
+  phone_number = node.find("phonenumber").text
+  birthday = node.find("birthday").text
+
+  df = df.append(pd.Series([name, phone_number, birthday], index=cols, ..., ignore_index=True))
+```
+
+**Hands-on Lab**: [Working with different file formats](labs/23-WorkingWithDifferentFileTypes.ipynb)
+
 <hr style="border:2px solid gray">
