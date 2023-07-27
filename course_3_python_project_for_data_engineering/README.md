@@ -104,7 +104,10 @@ log("ETL Job Ended")
 
 ## Final Project
 
-**Hands-on Lab**: [Web Scrapping](labs/2-Project_Webscraping.ipynb)
+**Hands-on Labs**: 
 
+- [Web Scrapping](labs/2-Project_Webscraping.ipynb)
+- [API Extraction](labs/3-Project_API_Extract.ipynb)
+- [ETL](labs/4-ETL.ipynb)
 
 <hr style="border:2px solid gray">
