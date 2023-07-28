@@ -125,7 +125,7 @@ AUTHOR(
   - No need to install/maintain software or supporting infrastructure
   - Clients access the database through an application server layer or cloud interface.
 
-<u>2-tier architecture</u>
+2-tier architecture</u>
 
 - Client aplication and remote database server run in seperate tiers.
 - Application(C/Java/Python etc) connects to the database through an API or framework.
@@ -138,7 +138,7 @@ AUTHOR(
   - Database Storage layer
     - Here the data is stored. It can be on the local storeage or on network storage.
 
-<u>3-tier architecture</u>
+3-tier architecture</u>
 
 - Application presentation layer and business logic layer reside in different tiers.
 - User interact with a client: presentation layer such as a desktop/mobile application or browser.
@@ -265,8 +265,308 @@ Properties of a  well-designed relational database:
 
 <hr style="border:2px solid gray">
 
-
 ## Using Relational Databases
+
+### Creating Tables and Loading Data
+
+#### Type os SQL Statements
+
+- SQL statemtns are used for interacting with entities(tables), attributes(columns) and their tuples(rows).
+- SQL statemtn tyeps:
+  - DDL(Data Definition Language)
+    - Used to define, change or drop database objects such as tables
+    - Common DDL statements
+      - CREATE
+      - ALTER
+      - TRUNCATE
+      - DROP
+  - DML(Data Manipulation Language)
+    - Used to read and modify data in tables
+    - These opertions are also reffered as CRUD Operations(Create, Read, Update and Delete rows)
+    - Common DML statements
+      - INSERT
+      - SELECT
+      - UPDATE
+      - DELETE
+
+#### Creating Tables**
+
+- Required info to create tables:
+  - Schema
+  - Table name
+  - Column names
+  - Data types
+  - Duplicates
+  - Null values
+- Methods for creating tables
+  - Visual or UI tools
+    - Db2 on cloud console
+    - MySQL phpMyAdmin
+    - PostgreSQL PGAdmin
+  - CREATE TABLE SQL statement
+  - Administrative APIs
+
+Syntax:
+
+```sql
+CREATE TABLE table_name (
+  column_name_1 datatype optional_parameters,
+  column_name_2 datatype,
+  ...
+  column_name_n datatyp
+)
+```
+
+eg:
+
+```sql
+CREATE TABLE states (
+  id char(2) PRIMARY KEY NOT NULL,
+  name varchar(24)
+)
+```
+
+#### ALTER, DROP and TRUNCATE tables
+
+Alter table</u>:
+
+- Add or remove column
+- Modify the data types of columns
+- Add ro remove keys
+- Add or remove constraints
+
+Syntax:
+
+```sql
+ALTER TABLE table_name
+  ADD COLUMN column_name_1 datatype
+  ...
+  ADD COLUMN column_name_n datatype;
+```
+
+eg:
+
+```sql
+ALTER TABLE author
+  ADD COLUMN telephone_number BIGINT;
+```
+
+To modify the column data type</u>:
+
+Syntax:
+
+```sql
+ALTER TABLE author
+  ALTER  COLUMN column_name SET DATA TYPE data_type;
+```
+
+eg:
+
+```sql
+ALTER TABLE author
+  ALTER  COLUMN telephone_number SET DATA TYPE CHAR(20);
+```
+
+Alter table .. DROP Column:
+
+eg:
+
+```sql
+ALTER TABLE author
+  DROP COLUMN telephone_number;
+```
+
+DROP Table:
+
+eg:
+
+```sql
+DROP TABLE author;
+```
+
+TRUNCATE Table:
+
+eg:
+
+```sql
+TRUNCATE TABLE author IMMEDIATE;
+```
+
+*IMMEDIATE* specify to process the statement immediate and that it cannot be undone.
+
+#### Data Movement Utilities
+
+Scenarios for data movement:
+
+- Initially populate the entire database
+- Create a development and testing copy
+- Create a snapshot for disaster recovery
+- Create a new table using data from external source/file
+- Add or append data in existing table
+
+Main categories of data movement tools:
+
+- Backup & Restore
+  - Backup creates a file for the entire database
+  - Restore creates exact copy of the database from file
+  - Preserves all database objects and their data including 
+    - schemas, tables and views
+    - User defined types, functions, stored procedures
+    - Constraints, triggeres, security
+  - Backups performed periodically for disaster recovery
+  - Create copies of database for development and test
+- Import & Export
+  - Import inserts data from a file into a table
+  - Exports saves table data into a file
+  - Import and exports operations are availble using differnt interfaces
+    - Command line, API, GUI, 3rd-party tools
+  - Import/Export file formats
+    - DEL: Delemited ASCII
+    - ASC: Nonl-delimted ASCII
+    - PC/IXF: PC version fo Integration Exchang Format(IXF)
+    - JSON
+    - eg:
+      - Db2 command line
+        - ```db2 import from filename of fileformat messages messagesfile into table```
+        - ```db2 export to filename of fileformat messages messagesfile select * from table```
+- Load
+  - Supports XML, large objects and user-defined types
+  - Faster than import utility
+  - Doesn't perform as many checks
+  - Preferred option for loading very large datasets
+  - Command line/API/Visual tool
+  - Command line syntax
+    - ```db2 load from filename of fileformat messages messagesfile import_mode into table copy yes/no use tsm data buffer pages```
+  - Db2 web console load utility supports:
+    - Delimited text files on local computer
+    - S3 object storage
+    - Cloud Object Storage
+
+### Designing Keys, Indexes and Constraints
+
+#### Database Objects and Hierarchy
+
+**Database Hierarchy**:
+
+- Instance
+  - Logical boundary for databases, objects and configurations
+  - Provides unique databse server environment
+  - Allos isolation between databases
+- Database
+  - Store, manages and provides access to data
+  - Contain objects like tables, views, indexes
+  - Use related tables to reduce data redunancy
+  - Can be distributed across multiple systems
+- Schema
+  - Organize databse objects
+  - Default schema is the user schema
+  - Provides a naming context
+  - System schemas contain databse configuration information
+- Database objects
+  - Tables
+  - Constraints
+  - Indexes
+  - Views
+  - Aliases
+
+#### Primary keys and Foreign keys
+
+Primary key uniquely identify each rows in a table.
+
+eg. create primary key
+
+```sql
+CREATE TABLE book (
+  book_id INT NOT NULL,
+  ...
+  pub_id INT NULL,
+  PRIMARY KEY(book_id)
+);
+
+-- Adding primary key to existing table
+
+ALTER TABLE book
+  ADD PRIMARY KEY(book_id, ISBN);
+```
+
+Foregin key is a column in a table which contains the same information as the primary key in another table. It can be used to refer the other tables.
+
+eg. create foreign key
+
+```sql
+CREATE TABLE copy (
+  copy_id INT NOT NULL
+  book_id INT NULL,
+  ...
+  CONSTRAINT fk_copy_book FOREIGN KEY(book_id)
+  REFERENCES book(book_id)
+  ON UPDATE NO ACTION
+);
+```
+
+#### Indexes
+
+- An index work by storing pointers to each rows of the table. This helps to avoid scanning the table row by row while querying.
+- The index is ordered by values withing the unique key upon which it is based.
+- When we create a primary key, index is automatically create on that key.
+- Advantages
+  - Improved performance of SELECT queries
+  - Reduced need to sort data
+  - Guranteed uniqueness of rows
+- Disadvantages
+  - Use disk space
+  - Decreased performance of INSERT, UPDATE and DELETE queries
+
+eg. create index
+
+```sql
+CREATE UNIQUE INDEX unique_book_id
+ON book(book_id);
+```
+
+#### Normalization
+
+- Data duplication leads to inconsistencies
+- Normalization is the process of reducing data duplication
+- It helps to increase the speed of transactions
+- Improves data integrity
+- Normalize each table
+- Most commonly used types:
+  - First normal form(1NF)
+    - Each row must be unique
+    - Each cell must contain only a single value
+  - Second normal form(2NF)
+    - Database must be in first normal form
+    - Create sepearte tables for sets of values that apply to multiple rows
+  - Third normal form(3NF)
+    - Database must be in first and second normal form
+    - Eliminate columns that do not depend on the key
+- OLTP
+  - Data is read and written frequently
+  - Data is normalized to 3NF or BCNF
+- OLAP
+  - Data is mostly read only
+  - Data is de-normalized to 2NF or 1NF
+
+#### Relational Model Constraints
+
+- Constraints help to implement the business rules
+- Constraints in a relational database model:
+  - Entity Integrity Constraint
+    - Prevent duplicate rows in a table
+    - Primary key and unique key
+    - No null values for attributes participating in this constraint
+  - Referential Integrity Contstraint
+    - Defines relationships between tables and ensures that these relationships remain valid
+    - The validity of data is enforced using a combination of primary keys and foreign keys.
+  - Semantic Integrity Constraint
+    - Ensure correctness of the meaning of the data
+  - Domain Constraint
+    - Specifies the permissible values for a given attribute.
+  - Null Constraint
+    - Specifies attribute values cannot be null
+  - Check Constraint
+    - Limit the values that are accepted by an attribute
 
 <hr style="border:2px solid gray">
 
