@@ -570,8 +570,139 @@ ON book(book_id);
 
 <hr style="border:2px solid gray">
 
-
 ## MySQl and PostgreSQL
+
+### MySQL
+
+- Popular open source RDBMS
+- MariaDB is fork of MySQL
+- MySQL Tools
+  - mysql commandline
+  - mysqladmin
+  - MySQL Workbench
+  - phpMyAdmin
+  
+Using commandline:
+
+```mysql
+CREATE DATABASE employees;
+
+USE employees;
+
+CREATE TABLE employee_details (
+  firstname VARCHAR(20),
+  lastname VARCHAR(20),
+  startdate DATE,
+  salary DECIMAL
+);
+
+DESCRIBE employee_details;
+```
+
+#### Loading data in MySQL
+
+Backup using mysqldump utility:
+
+```bash
+mysqldump -u root employees > employeebackup.sql
+```
+
+Restore using mysql:
+
+```bash
+mysql -u root restored_employees < employeebackup.sql
+```
+
+Restore using source command(in mysql command prompt):
+
+```bash
+mysql>  source employeesbackup.sql
+```
+
+**Importing data files**:
+
+Importing using ```load data infile``` statement:
+
+```bash
+load data infile 'employeesdata.csv' into table employee_details
+```
+
+Importing using ```mysqlimport``` utility:
+
+```bash
+mysqlimport employees employeesdata.csv
+```
+
+#### Using keys and constraints in MySQL
+
+Types of keys and constraints
+
+- Primary keys
+  - One column or a combination of columns
+  - Not null
+  - Unique
+  - Indexed
+  - Auto increment: Automatic generation of incrementing numbers
+- Foreign keys
+- Unique constraints
+- Null constraints
+
+### PostgreSQL
+
+- Open source object-relational DBMS.
+- Reliable and flexible
+- Supports relational and non-relational data types
+- Popular choice for:
+  - OLTP
+  - Data analytics
+  - Geographic information systems
+- PostgreSQL tools:
+  - psql commandline
+  - pgAdmin
+  - Navicat, DBeaver
+  - Clound vendor tools and APIs
+
+#### Creating Databases and Loading data in PostgreSQL
+
+```psql
+CREATE DATABASE Employees;
+
+\connect employees;
+
+CREATE TABLE employee_details (
+  firstname VARCHAR(20),
+  lastname VARCHAR(20),
+  startdate DATE,
+  salary DECIMAL
+);
+```
+
+Back up a database:
+
+```bash
+pg_dump employees > employeesbackup.sql
+```
+
+Restore previously backed up database:
+
+```bash
+psql restored_employees < employeesbackup.sql
+```
+
+#### Views
+
+- Alternative way of representing data from one or more tables or other views.
+- Can interact with views in the same way as interact with tables.
+- Use to:
+  - Limit access to sensitive data
+  - Simplify data retrieval
+  - Reduce access to underlying tables
+- PostgreSQL also supports another type of views called *Materialized views*:
+  - Behave differently to regular views
+  - Result set is materialized/saved for future use.
+  - Cannot insert, update or delete rows
+  - Can improve performance
+
 
 <hr style="border:2px solid gray">
 
