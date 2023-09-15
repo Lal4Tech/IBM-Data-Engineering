@@ -706,6 +706,22 @@ psql restored_employees < employeesbackup.sql
 
 <hr style="border:2px solid gray">
 
-## Project
+## Database Design
+
+### Importance of database design
+
+- It's crucial to the success of a project involving databases.
+- It contributes to
+  - Data integrity
+  - Redundancy reduction
+  - Performance
+  - User Satisfaction
+
+### Database Design process
+
+- Requirement Analysis
+- Logical Design
+- Physical Design
+
 
 <hr style="border:2px solid gray">
